@@ -26,6 +26,7 @@ func StartWebServer(conversation *Conversation) error {
 		MaxAge:           12 * time.Hour,
 	}))
 	server.POST("/", SendCommand)
+	server.GET("/shutdown", Shutdown)
 	server.GET("/", GetLastState)
 	err := server.Start(os.Getenv("HTTP_HOST"))
 
@@ -59,6 +60,12 @@ func GetLastState(ctx *gin.Context) {
 	glagolCtxO := glagolCtx.(*Conversation)
 
 	ctx.JSON(200, glagolCtxO.Device.LastState)
+}
+
+func Shutdown(ctx *gin.Context){
+	ctx.JSON(200, "Shutdown app")
+	os.Exit(0)
+	return
 }
 
 func SendCommand(ctx *gin.Context) {

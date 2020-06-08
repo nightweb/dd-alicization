@@ -9,6 +9,7 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/gorilla/websocket v1.4.1
 	github.com/grandcat/zeroconf v0.0.0-20190424104450-85eadb44205c
+	github.com/joho/godotenv v1.3.0
 	github.com/miekg/dns v1.1.27 // indirect
 	github.com/pkg/errors v0.8.1 // indirect
 )
